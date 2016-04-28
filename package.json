@@ -1,0 +1,15 @@
+{
+    "name": "waymaker",
+    "title": "Waymaker",
+    "description": "This is my custom theme.",
+    "homepage": "https://github.com/waymakermedia/brackets-waymaker",
+    "version": "1.0.0",
+    "author": "Heidi Ennis <Heidi@waymakermedia.com> (http://www.waymakermedia.com/)",
+    "license": "MIT",
+    "theme": {
+        "file": "theme.less",
+        "dark": false,
+        "addModeClass": true
+    },
+    "keywords": ["theme"]
+}

@@ -1,0 +1,175 @@
+@background: #fff;
+@foreground: #000;
+
+/* Code Styling */
+
+.CodeMirror, .CodeMirror-scroll {
+    background-color: @background;
+    color: @foreground;
+    font-family: "Lucida Console";
+    font-weight: 100;
+    font-size: 15px;
+}
+
+.CodeMirror-focused .CodeMirror-activeline-background {
+    background: #2f2f2f;
+}
+
+.show-line-padding .CodeMirror-focused .CodeMirror-activeline-background {
+    box-shadow: inset 15px 0 0 0 #000;
+}
+
+.CodeMirror-focused .CodeMirror-activeline {
+    .CodeMirror-gutter-elt {
+        background: rgba(0, 0, 0, 0.2);
+         font-family: "Lucida Console";
+        color: #fff;
+    }
+    .inline-widget .CodeMirror-gutter-elt {
+        color: #767676;    
+    }
+}
+.cm-m-clike.cm-string{
+    color: #efefef;
+}
+.cm-atom, .cm-string, .cm-string-2, .cm-hr {color: rgb(200, 50, 255);}
+.cm-number, .cm-attribute, .cm-plus {color: rgb(255, 0, 0);}
+.cm-def, .cm-property {color: #9f9f9f; font-weight: 600;}
+.cm-variable, .cm-variable-2, .cm-variable-3, .cm-operator, .cm-meta, .cm-bracket {color: @foreground;}
+.cm-comment {color: rgb(0,128,0);}
+.cm-error, .cm-minus {color: #dc322f;}
+.cm-header {color: #d85896;}
+.cm-link {color: #b77fdb; text-decoration: none;}
+.cm-rangeinfo {color: #6c71c4;}
+.cm-keyword, .cm-qualifier, .cm-builtin, .cm-tag, .cm-quote {
+    color: rgb(0, 0, 255);
+    font-weight: 800;
+}
+/* Extra CSS */
+
+.quick-view-highlight{
+    color: #000;
+}
+
+.CodeMirror-searching {
+    background-color: #d3cd69;
+    &.searching-current-match {
+        background-color: #f6a644;
+    }
+}
+
+
+.CodeMirror-cursor {
+    border-left: 1px solid #000 !important;
+}
+
+.CodeMirror-gutters {
+    background-color: @background;
+    border-right: none;
+}
+
+.CodeMirror-linenumber {
+    color: #9f9f9f;
+}
+
+.CodeMirror .CodeMirror-selected {
+    background: #333f48;
+}
+.CodeMirror-focused .CodeMirror-selected {
+    background: rgba(0,0,0,0.1);
+}
+
+.CodeMirror-matchingbracket, .CodeMirror-matchingtag {
+    /* Ensure visibility against gray inline editor background */
+    background-color: rgba(128, 0, 255,.3);
+    color: @foreground !important;
+}
+
+.CodeMirror-overwrite .CodeMirror-cursor {
+    border-left: none !important;
+    border-bottom: 1px solid #fff;
+}
+
+/*
+    CodeMirror's use of descendant selectors for certain styling causes problems when editors are
+    nested because, for items in the inner editor, the left-hand clause in the selector will now
+    match either the actual containing CodeMirror instance *OR* the outer "host" CodeMirror instance.
+    TODO (issue #324): We'll still have problems if editors can be nested more than one level deep,
+    or if any other descendant-selector-driven CM styles can differ between inner & outer editors
+    (potential problem areas include line wrap and coloring theme: basically, anything in codemirror.css
+    that uses a descandant selector where the CSS class name to the left of the space is something
+    other than a vanilla .CodeMirror)
+ */
+.CodeMirror {
+    .CodeMirror {
+        background: transparent;
+    }
+
+    .CodeMirror .CodeMirror-gutters {
+        background: transparent;
+        border-right: none;
+    }
+
+    .CodeMirror .CodeMirror-activeline-background {
+        background: transparent;
+    }
+
+    .CodeMirror .CodeMirror-activeline .CodeMirror-gutter-elt {
+        background: transparent;
+        color: #767676;
+    }
+
+    .CodeMirror-focused .CodeMirror-activeline-background {
+        background: #2f2f2f;
+    }
+
+    .CodeMirror-focused .CodeMirror-activeline {
+        .CodeMirror-gutter-elt {
+            background: rgba(0, 0, 0, 0.2);
+            color: #fff;
+        }
+    }
+}
+
+.CodeMirror-foldgutter-open:after {
+    color: #666;
+}
+.CodeMirror-foldgutter-folded:after {
+    color: #aaa;
+}
+
+.CodeMirror.over-gutter, .CodeMirror-activeline {
+    .CodeMirror-foldgutter-open:after {
+        color: #888;
+    }
+}
+
+.CodeMirror-foldmarker {
+    border-color: #000;
+    color: #ccc;
+    background-color: #444;
+}
+
+/* Non-editor styling */
+
+.image-view,
+.not-editor {
+    background-color: @background;
+}
+
+.view-pane .image-view {
+    color: @foreground;
+}
+
+
+.cm-m-clike.cm-string{
+    color:#9f9f9f;
+}
+.cm-m-clike.cm-keyword{color: rgb(0, 0, 255);font-weight:bold}
+// css id's; php: define, var_dump
+.cm-m-clike.cm-builtin{
+    color: #006;
+    font-weight:bold;
+}
+.cm-m-clike.cm-variable-2{color: rgb(0, 0, 255);} // css: @font-face; php var name
+.cm-m-clike.cm-variable{color: rgb(0, 0, 255); font-weight: 600;} //js: window, console, function names; php function name, arguments
