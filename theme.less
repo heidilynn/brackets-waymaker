@@ -8,7 +8,7 @@
     color: @foreground;
     font-family: "Lucida Console";
     font-weight: 100;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .CodeMirror-focused .CodeMirror-activeline-background {
@@ -21,8 +21,7 @@
 
 .CodeMirror-focused .CodeMirror-activeline {
     .CodeMirror-gutter-elt {
-        background: rgba(0, 0, 0, 0.2);
-         font-family: "Lucida Console";
+        background: #E8E8FF;
         color: #fff;
     }
     .inline-widget .CodeMirror-gutter-elt {
@@ -32,18 +31,22 @@
 .cm-m-clike.cm-string{
     color: #efefef;
 }
-.cm-atom, .cm-string, .cm-string-2, .cm-hr {color: rgb(200, 50, 255);}
-.cm-number, .cm-attribute, .cm-plus {color: rgb(255, 0, 0);}
-.cm-def, .cm-property {color: #9f9f9f; font-weight: 600;}
+.cm-atom, .cm-string, .cm-string-2, .cm-hr {color: #000000;}
+.cm-number, .cm-attribute, .cm-plus {color: #3A6DA5;}
+.cm-def, .cm-property {color: #FF4000; font-weight: 400;}
 .cm-variable, .cm-variable-2, .cm-variable-3, .cm-operator, .cm-meta, .cm-bracket {color: @foreground;}
-.cm-comment {color: rgb(0,128,0);}
+.cm-comment {color:#FF8000;}
 .cm-error, .cm-minus {color: #dc322f;}
 .cm-header {color: #d85896;}
-.cm-link {color: #b77fdb; text-decoration: none;}
+.cm-link {color: #000000; text-decoration: none;}
 .cm-rangeinfo {color: #6c71c4;}
-.cm-keyword, .cm-qualifier, .cm-builtin, .cm-tag, .cm-quote {
-    color: rgb(0, 0, 255);
-    font-weight: 800;
+.cm-keyword {
+    color: #0A246B;
+    font-weight: 600;
+}
+.cm-qualifier, .cm-builtin, .cm-tag, .cm-quote {
+    color: #638000;
+    font-weight: 400;
 }
 /* Extra CSS */
 
@@ -81,8 +84,9 @@
 
 .CodeMirror-matchingbracket, .CodeMirror-matchingtag {
     /* Ensure visibility against gray inline editor background */
-    background-color: rgba(128, 0, 255,.3);
-    color: @foreground !important;
+    background-color: @background;
+    color: #ff0000 !important;
+    font-weight: 800;
 }
 
 .CodeMirror-overwrite .CodeMirror-cursor {
@@ -161,15 +165,20 @@
     color: @foreground;
 }
 
-
+// PHP
 .cm-m-clike.cm-string{
-    color:#9f9f9f;
+    color:#008000;
 }
-.cm-m-clike.cm-keyword{color: rgb(0, 0, 255);font-weight:bold}
+.cm-m-clike.cm-keyword{color: deepskyblue;font-weight:bold}
+
+.cm-m-clike.cm-def, .cm-m-clike.cm-property {
+    color: #000;
+    font-weight: bold;
+}
 // css id's; php: define, var_dump
 .cm-m-clike.cm-builtin{
     color: #006;
     font-weight:bold;
 }
-.cm-m-clike.cm-variable-2{color: rgb(0, 0, 255);} // css: @font-face; php var name
-.cm-m-clike.cm-variable{color: rgb(0, 0, 255); font-weight: 600;} //js: window, console, function names; php function name, arguments
+.cm-m-clike.cm-variable-2{color: rgb(0, 0, 255); font-style: italic;} // css: @font-face; php var name
+.cm-m-clike.cm-variable{color: #000; } //js: window, console, function names; php function name, arguments
